@@ -9,11 +9,19 @@
 
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #fff;
         }
+
         .navbar {
             background: linear-gradient(to right, #007bff, #00c4ff);
         }
+
+        .judul-aplikasi {
+            font-size: 0.95rem;
+            line-height: 1.25;
+        }
+
+        /* ===== Sidebar ===== */
         .sidebar {
             min-height: calc(100vh - 76px);
             width: 250px;
@@ -21,48 +29,95 @@
             background-color: #0056b3;
             color: white;
         }
+
         .sidebar a {
             color: white;
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s;
         }
+
         .sidebar a:hover {
             background: linear-gradient(to right, #ff8c00, #ffa500);
             text-decoration: none;
             padding-left: 15px;
         }
+
         .sidebar a.active {
             background-color: rgba(255, 255, 255, 0.2);
         }
+
+        /* ===== Judul halaman ===== */
+        .judul-halaman {
+            font-weight: 800;
+            margin-bottom: 0;
+        }
+
+        .subjudul-halaman {
+            font-size: 0.8rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ===== Tabel stok barang ===== */
         .table-wrapper {
             background-color: #fff;
             border: 2px solid #212529;
             border-radius: 25px;
             padding: 20px;
         }
-        .table-wrapper .table > :not(caption) > * > * {
-            border: 1px solid #212529;
+
+        #tabelStok {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #000;
         }
-        .table-wrapper thead th {
-            background-color: #6c757d;
-            color: #fff;
+
+        #tabelStok th,
+        #tabelStok td {
+            border: 1px solid #000;
+            padding: 10px 12px;
+            vertical-align: middle;
+        }
+
+        #tabelStok thead th {
+            background-color: #808080;
+            color: #000;
+            font-weight: 700;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        #tabelStok td.tengah {
             text-align: center;
         }
-        .judul-aplikasi {
-            font-size: 0.95rem;
-            line-height: 1.25;
+
+        #tabelStok td.no {
+            text-align: center;
+            font-weight: 700;
+        }
+
+        #tabelStok a.link-aksi {
+            color: #0000ee;
+            text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
 
     <!-- Navbar -->
     <nav class="navbar navbar-dark px-3">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="aplikasi-removebg-preview.png" alt="Logo" width="50" height="50" class="me-2">
+                <img src="aplikasi-removebg-preview.png"
+                     alt="Logo"
+                     width="50"
+                     height="50"
+                     class="me-2">
+
                 <span class="judul-aplikasi text-white">
-                    Aplikasi Stok dan Kebutuhan<br>Belanja Rumah Tangga
+                    Aplikasi Stok dan Kebutuhan<br>
+                    Belanja Rumah Tangga
                 </span>
             </a>
         </div>
@@ -70,33 +125,61 @@
 
     <!-- Page Wrapper -->
     <div class="d-flex">
+
         <!-- Sidebar -->
         <div class="sidebar p-3">
             <h4 class="mb-4">Menu</h4>
+
             <ul class="nav flex-column gap-2">
                 <li class="nav-item">
-                    <a class="nav-link" href="dashboard.html"><i class="fas fa-tachometer-alt fa-fw me-2"></i>Dashboard</a>
+                    <a class="nav-link" href="dashboard.html">
+                        <i class="fas fa-tachometer-alt fa-fw me-2"></i>
+                        Dashboard
+                    </a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link active" href="stok-barang.html"><i class="fas fa-boxes-stacked fa-fw me-2"></i>Stok Barang</a>
+                    <a class="nav-link" href="kategori.html">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        Kategori
+                    </a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="layout.html"><i class="fas fa-shopping-cart fa-fw me-2"></i>Daftar Belanja</a>
+                    <a class="nav-link" href="Barang.html">
+                        <i class="fas fa-box fa-fw me-2"></i>
+                        Barang
+                    </a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-chart-line fa-fw me-2"></i>Rekap Belanja</a>
+                    <a class="nav-link active" href="stok-barang.html">
+                        <i class="fas fa-boxes-stacked fa-fw me-2"></i>
+                        Stok Barang
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="daftar_belanja.html">
+                        <i class="fas fa-shopping-cart fa-fw me-2"></i>
+                        Daftar Belanja
+                    </a>
                 </li>
             </ul>
         </div>
 
         <!-- Main Content -->
         <div class="container-fluid p-4">
-            <h2 class="fw-bold mb-0">Stok Barang</h2>
-            <p class="text-muted small mb-4">Ringkasan Kondisi Stok Barang dan Kebutuhan Belanja Rumah Tangga</p>
+            <h2 class="judul-halaman">Stok Barang</h2>
+
+            <p class="subjudul-halaman">
+                Ringkasan Kondisi Stok Barang dan Kebutuhan Belanja Rumah Tangga
+            </p>
 
             <div class="table-wrapper">
                 <div class="table-responsive">
-                    <table class="table table-sm align-middle mb-0" id="tabelStok">
+
+                    <table id="tabelStok">
                         <thead>
                             <tr>
                                 <th style="width: 70px;">NO.</th>
@@ -105,84 +188,426 @@
                                 <th>Stok saat ini</th>
                                 <th>Minimum</th>
                                 <th>Status</th>
+                                <th>Tempat Penyimpanan</th>
+                                <th style="width: 110px;">Aksi</th>
                             </tr>
                         </thead>
+
                         <tbody>
                             <tr>
-                                <td class="text-center fw-bold">1.</td>
+                                <td class="no">1.</td>
                                 <td>Gula Pasir</td>
                                 <td>Bahan Makanan</td>
-                                <td class="text-center">0</td>
-                                <td class="text-center">2</td>
-                                <td class="text-center"><span class="badge text-bg-danger">Habis</span></td>
+                                <td class="tengah">0</td>
+                                <td class="tengah">2</td>
+                                <td class="tengah">Habis</td>
+                                <td class="tengah">Dapur</td>
+                                <td class="tengah">
+                                    <a class="link-aksi"
+                                       href="#"
+                                       data-bs-toggle="modal"
+                                       data-bs-target="#modalEdit1">
+                                        Edit
+                                    </a>
+                                </td>
                             </tr>
+
                             <tr>
-                                <td class="text-center fw-bold">2.</td>
+                                <td class="no">2.</td>
                                 <td>Mama Lemon</td>
                                 <td>Produk Kebersihan</td>
-                                <td class="text-center">3</td>
-                                <td class="text-center">3</td>
-                                <td class="text-center"><span class="badge text-bg-warning">Menipis</span></td>
+                                <td class="tengah">3</td>
+                                <td class="tengah">3</td>
+                                <td class="tengah">Menipis</td>
+                                <td class="tengah">Tempat Cuci Piring</td>
+                                <td class="tengah">
+                                    <a class="link-aksi"
+                                       href="#"
+                                       data-bs-toggle="modal"
+                                       data-bs-target="#modalEdit2">
+                                        Edit
+                                    </a>
+                                </td>
                             </tr>
+
                             <tr>
-                                <td class="text-center fw-bold">3.</td>
+                                <td class="no">3.</td>
                                 <td>Beras</td>
                                 <td>Bahan Makanan</td>
-                                <td class="text-center">1</td>
-                                <td class="text-center">2</td>
-                                <td class="text-center"><span class="badge text-bg-warning">Menipis</span></td>
+                                <td class="tengah">1</td>
+                                <td class="tengah">2</td>
+                                <td class="tengah">Menipis</td>
+                                <td class="tengah">Gudang</td>
+                                <td class="tengah">
+                                    <a class="link-aksi"
+                                       href="#"
+                                       data-bs-toggle="modal"
+                                       data-bs-target="#modalEdit3">
+                                        Edit
+                                    </a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
 
-                <div class="d-flex justify-content-between align-items-center mt-3">
-                    <button type="button" class="btn btn-secondary fw-bold px-4" data-bs-toggle="modal" data-bs-target="#modalTambah">
-                        + Tambahkan Barang
-                    </button>
-                    <a href="#" class="link-dark">Lihat semua</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Modal Tambah Barang -->
-    <div class="modal fade" id="modalTambah" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
+    <div class="modal fade"
+         id="modalTambah"
+         tabindex="-1"
+         aria-labelledby="judulModalTambah"
+         aria-hidden="true">
+
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <form id="formTambah">
+                <form>
                     <div class="modal-header">
-                        <h5 class="modal-title" id="judulModal">Tambahkan Barang</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                        <h5 class="modal-title" id="judulModalTambah">
+                            Tambahkan Barang
+                        </h5>
+
+                        <button type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Tutup">
+                        </button>
                     </div>
+
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="inputNama" class="form-label">Nama Barang</label>
-                            <input type="text" class="form-control" id="inputNama" required>
+                            <label for="inputNama" class="form-label">
+                                Nama Barang
+                            </label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="inputNama"
+                                   required>
                         </div>
+
                         <div class="mb-3">
-                            <label for="inputKategori" class="form-label">Kategori</label>
-                            <select class="form-select" id="inputKategori" required>
-                                <option value="" selected disabled>Pilih kategori</option>
+                            <label for="inputKategori" class="form-label">
+                                Kategori
+                            </label>
+
+                            <select class="form-select"
+                                    id="inputKategori"
+                                    required>
+                                <option value="" selected disabled>
+                                    Pilih kategori
+                                </option>
                                 <option>Bahan Makanan</option>
                                 <option>Produk Kebersihan</option>
                                 <option>Lainnya</option>
                             </select>
                         </div>
+
                         <div class="row">
                             <div class="col-6 mb-3">
-                                <label for="inputStok" class="form-label">Stok saat ini</label>
-                                <input type="number" class="form-control" id="inputStok" min="0" required>
+                                <label for="inputStok" class="form-label">
+                                    Stok saat ini
+                                </label>
+
+                                <input type="number"
+                                       class="form-control"
+                                       id="inputStok"
+                                       min="0"
+                                       required>
                             </div>
+
                             <div class="col-6 mb-3">
-                                <label for="inputMinimum" class="form-label">Minimum</label>
-                                <input type="number" class="form-control" id="inputMinimum" min="0" required>
+                                <label for="inputMinimum" class="form-label">
+                                    Minimum
+                                </label>
+
+                                <input type="number"
+                                       class="form-control"
+                                       id="inputMinimum"
+                                       min="0"
+                                       required>
                             </div>
                         </div>
                     </div>
+
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Simpan</button>
+                        <button type="button"
+                                class="btn btn-outline-secondary"
+                                data-bs-dismiss="modal">
+                            Batal
+                        </button>
+
+                        <button type="button"
+                                class="btn btn-primary"
+                                data-bs-dismiss="modal">
+                            Simpan
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit 1: Gula Pasir -->
+    <div class="modal fade"
+         id="modalEdit1"
+         tabindex="-1"
+         aria-labelledby="judulEdit1"
+         aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="judulEdit1">
+                            Edit Status Stok
+                        </h5>
+
+                        <button type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Tutup">
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Nama Barang</label>
+                            <input type="text"
+                                   class="form-control"
+                                   value="Gula Pasir"
+                                   readonly>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label for="stok1" class="form-label">
+                                    Stok saat ini
+                                </label>
+
+                                <input type="number"
+                                       class="form-control"
+                                       id="stok1"
+                                       min="0"
+                                       value="0">
+                            </div>
+
+                            <div class="col-6 mb-3">
+                                <label for="min1" class="form-label">
+                                    Minimum
+                                </label>
+
+                                <input type="number"
+                                       class="form-control"
+                                       id="min1"
+                                       min="0"
+                                       value="2">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="status1" class="form-label">
+                                Status
+                            </label>
+
+                            <select class="form-select" id="status1">
+                                <option selected>Habis</option>
+                                <option>Menipis</option>
+                                <option>Aman</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button"
+                                class="btn btn-outline-secondary"
+                                data-bs-dismiss="modal">
+                            Batal
+                        </button>
+
+                        <button type="button"
+                                class="btn btn-primary"
+                                data-bs-dismiss="modal">
+                            Simpan
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit 2: Mama Lemon -->
+    <div class="modal fade"
+         id="modalEdit2"
+         tabindex="-1"
+         aria-labelledby="judulEdit2"
+         aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="judulEdit2">
+                            Edit Status Stok
+                        </h5>
+
+                        <button type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Tutup">
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Nama Barang</label>
+                            <input type="text"
+                                   class="form-control"
+                                   value="Mama Lemon"
+                                   readonly>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label for="stok2" class="form-label">
+                                    Stok saat ini
+                                </label>
+
+                                <input type="number"
+                                       class="form-control"
+                                       id="stok2"
+                                       min="0"
+                                       value="3">
+                            </div>
+
+                            <div class="col-6 mb-3">
+                                <label for="min2" class="form-label">
+                                    Minimum
+                                </label>
+
+                                <input type="number"
+                                       class="form-control"
+                                       id="min2"
+                                       min="0"
+                                       value="3">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="status2" class="form-label">
+                                Status
+                            </label>
+
+                            <select class="form-select" id="status2">
+                                <option>Habis</option>
+                                <option selected>Menipis</option>
+                                <option>Aman</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button"
+                                class="btn btn-outline-secondary"
+                                data-bs-dismiss="modal">
+                            Batal
+                        </button>
+
+                        <button type="button"
+                                class="btn btn-primary"
+                                data-bs-dismiss="modal">
+                            Simpan
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit 3: Beras -->
+    <div class="modal fade"
+         id="modalEdit3"
+         tabindex="-1"
+         aria-labelledby="judulEdit3"
+         aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="judulEdit3">
+                            Edit Status Stok
+                        </h5>
+
+                        <button type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Tutup">
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Nama Barang</label>
+                            <input type="text"
+                                   class="form-control"
+                                   value="Beras"
+                                   readonly>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label for="stok3" class="form-label">
+                                    Stok saat ini
+                                </label>
+
+                                <input type="number"
+                                       class="form-control"
+                                       id="stok3"
+                                       min="0"
+                                       value="1">
+                            </div>
+
+                            <div class="col-6 mb-3">
+                                <label for="min3" class="form-label">
+                                    Minimum
+                                </label>
+
+                                <input type="number"
+                                       class="form-control"
+                                       id="min3"
+                                       min="0"
+                                       value="2">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="status3" class="form-label">
+                                Status
+                            </label>
+
+                            <select class="form-select" id="status3">
+                                <option>Habis</option>
+                                <option selected>Menipis</option>
+                                <option>Aman</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button"
+                                class="btn btn-outline-secondary"
+                                data-bs-dismiss="modal">
+                            Batal
+                        </button>
+
+                        <button type="button"
+                                class="btn btn-primary"
+                                data-bs-dismiss="modal">
+                            Simpan
+                        </button>
                     </div>
                 </form>
             </div>
@@ -190,5 +615,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

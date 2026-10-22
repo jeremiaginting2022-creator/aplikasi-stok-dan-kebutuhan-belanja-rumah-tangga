@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Belanja Aplikasi</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            margin: 0;
+        }
+
+        .navbar {
+            background: linear-gradient(to right, #007bff, #00c4ff);
+        }
+
+        .judul-aplikasi {
+            font-weight: bold;
+        }
+
+        .sidebar {
+            min-height: calc(100vh - 76px);
+            width: 250px;
+            flex-shrink: 0;
+            background-color: #0056b3;
+            color: white;
+        }
+
+        .sidebar a {
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: linear-gradient(to right, #ff8c00, #ffa500);
+            text-decoration: none;
+            padding-left: 15px;
+        }
+
+        .sidebar a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .judul-halaman {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0;
+            color: #000;
+        }
+
+        .subjudul-halaman {
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        .table-wrapper {
+            margin-top: 50px;
+        }
+
+        #tabelBelanja {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #000;
+            font-size: 1.1rem;
+        }
+
+        #tabelBelanja th,
+        #tabelBelanja td {
+            border: 2px solid #000;
+            padding: 8px 12px;
+            vertical-align: middle;
+        }
+
+        #tabelBelanja thead th {
+            background-color: #929292;
+            color: #000;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .kolom-tengah {
+            text-align: center;
+        }
+
+        .link-edit {
+            color: #00e;
+            text-decoration: underline;
+            background: none;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 75px;
+                padding: 10px !important;
+            }
+
+            .sidebar h4,
+            .teks-menu {
+                display: none;
+            }
+
+            .sidebar a {
+                text-align: center;
+                padding: 10px 5px;
+            }
+
+            .judul-halaman {
+                font-size: 1.8rem;
+            }
+
+            #tabelBelanja {
+                font-size: 0.9rem;
+            }
+
+            #tabelBelanja th,
+            #tabelBelanja td {
+                padding: 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark navbar-expand-lg px-3">
+        <div class="container-fluid">
+
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="aplikasi-removebg-preview.png"
+                     alt="Logo" width="50" height="50" class="me-2">
+
+                <span class="judul-aplikasi fs-6 lh-sm text-white">
+                    Aplikasi Stok dan Kebutuhan<br>
+                    Belanja Rumah Tangga
+                </span>
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item me-lg-3">
+                        <a class="nav-link text-white" href="#">
+                            <i class="fas fa-bell fs-5"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white"
+                           href="#" id="navbarDropdown"
+                           role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Pengguna
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end"
+                            aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Profil Saya</a></li>
+                            <li><a class="dropdown-item" href="#">Pengaturan</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Keluar</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Wrapper -->
+    <div class="d-flex">
+
+        <!-- Sidebar -->
+        <aside class="sidebar p-3">
+            <h4 class="mb-4">Menu</h4>
+
+            <ul class="nav flex-column gap-2">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">
+                        <i class="fas fa-tachometer-alt fa-fw me-2"></i>
+                        <span class="teks-menu">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="kategori.html">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        <span class="teks-menu">Kategori</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="Barang.html">
+                        <i class="fas fa-box fa-fw me-2"></i>
+                        <span class="teks-menu">Barang</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="stok_belanja.html">
+                        <i class="fas fa-boxes-stacked fa-fw me-2"></i>
+                        <span class="teks-menu">Stok Barang</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="daftar_belanja.html">
+                        <i class="fas fa-shopping-cart fa-fw me-2"></i>
+                        <span class="teks-menu">Daftar Belanja</span>
+                    </a>
+                </li>
+
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="container-fluid p-4">
+
+            <h2 class="judul-halaman">Daftar Belanja</h2>
+
+            <p class="subjudul-halaman">
+                Ringkasan Kondisi Stok Barang dan Kebutuhan Belanja Rumah Tangga
+            </p>
+
+            <!-- Tabel Daftar Belanja -->
+            <div class="table-wrapper">
+                <div class="table-responsive">
+
+                    <table class="table table-bordered border-dark align-middle"
+                           id="tabelBelanja">
+
+                        <thead>
+                            <tr>
+                                <th style="width: 8%;">NO.</th>
+                                <th>Nama Barang</th>
+                                <th>Kategori</th>
+                                <th style="width: 12%;">Jumlah</th>
+                                <th>Status</th>
+                                <th>Edit</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="kolom-tengah fw-bold">1.</td>
+                                <td>Gula Pasir</td>
+                                <td>Bahan Makanan</td>
+                                <td class="kolom-tengah">3</td>
+                                <td class="kolom-tengah">Dibeli</td>
+                                <td class="kolom-tengah">
+                                    <button type="button" class="link-edit"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#editBelanja1">
+                                        Edit status
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="kolom-tengah fw-bold">2.</td>
+                                <td>Mama Lemon</td>
+                                <td>Produk Kebersihan</td>
+                                <td class="kolom-tengah">430</td>
+                                <td class="kolom-tengah">Belum dibeli</td>
+                                <td class="kolom-tengah">
+                                    <button type="button" class="link-edit"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#editBelanja2">
+                                        Edit status
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="kolom-tengah fw-bold">3.</td>
+                                <td>Beras</td>
+                                <td>Bahan Makanan</td>
+                                <td class="kolom-tengah">5</td>
+                                <td class="kolom-tengah">Belum dibeli</td>
+                                <td class="kolom-tengah">
+                                    <button type="button" class="link-edit"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#editBelanja3">
+                                        Edit status
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="kolom-tengah fw-bold">4.</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Edit Gula Pasir -->
+    <div class="modal fade" id="editBelanja1" tabindex="-1"
+         aria-labelledby="judulBelanja1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="judulBelanja1">
+                        Edit Status Belanja
+                    </h5>
+                    <button type="button" class="btn-close"
+                            data-bs-dismiss="modal" aria-label="Tutup"></button>
+                </div>
+
+                <div class="modal-body">
+                    <label class="form-label">Nama Barang</label>
+                    <input type="text" class="form-control mb-3"
+                           value="Gula Pasir" readonly>
+
+                    <label class="form-label">Kategori</label>
+                    <input type="text" class="form-control mb-3"
+                           value="Bahan Makanan" readonly>
+
+                    <label class="form-label">Jumlah</label>
+                    <input type="number" class="form-control mb-3"
+                           value="3" min="0">
+
+                    <label class="form-label">Status</label>
+                    <select class="form-select">
+                        <option selected>Dibeli</option>
+                        <option>Belum dibeli</option>
+                    </select>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary"
+                            data-bs-dismiss="modal">Simpan</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit Mama Lemon -->
+    <div class="modal fade" id="editBelanja2" tabindex="-1"
+         aria-labelledby="judulBelanja2" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="judulBelanja2">
+                        Edit Status Belanja
+                    </h5>
+                    <button type="button" class="btn-close"
+                            data-bs-dismiss="modal" aria-label="Tutup"></button>
+                </div>
+
+                <div class="modal-body">
+                    <label class="form-label">Nama Barang</label>
+                    <input type="text" class="form-control mb-3"
+                           value="Mama Lemon" readonly>
+
+                    <label class="form-label">Kategori</label>
+                    <input type="text" class="form-control mb-3"
+                           value="Produk Kebersihan" readonly>
+
+                    <label class="form-label">Jumlah</label>
+                    <input type="number" class="form-control mb-3"
+                           value="430" min="0">
+
+                    <label class="form-label">Status</label>
+                    <select class="form-select">
+                        <option>Dibeli</option>
+                        <option selected>Belum dibeli</option>
+                    </select>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary"
+                            data-bs-dismiss="modal">Simpan</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit Beras -->
+    <div class="modal fade" id="editBelanja3" tabindex="-1"
+         aria-labelledby="judulBelanja3" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="judulBelanja3">
+                        Edit Status Belanja
+                    </h5>
+                    <button type="button" class="btn-close"
+                            data-bs-dismiss="modal" aria-label="Tutup"></button>
+                </div>
+
+                <div class="modal-body">
+                    <label class="form-label">Nama Barang</label>
+                    <input type="text" class="form-control mb-3"
+                           value="Beras" readonly>
+
+                    <label class="form-label">Kategori</label>
+                    <input type="text" class="form-control mb-3"
+                           value="Bahan Makanan" readonly>
+
+                    <label class="form-label">Jumlah</label>
+                    <input type="number" class="form-control mb-3"
+                           value="5" min="0">
+
+                    <label class="form-label">Status</label>
+                    <select class="form-select">
+                        <option>Dibeli</option>
+                        <option selected>Belum dibeli</option>
+                    </select>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary"
+                            data-bs-dismiss="modal">Simpan</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap untuk tampilan modal dan menu navigasi -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
