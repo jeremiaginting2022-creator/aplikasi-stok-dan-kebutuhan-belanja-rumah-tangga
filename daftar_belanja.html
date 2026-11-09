@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,9 +19,7 @@
             background: linear-gradient(to right, #007bff, #00c4ff);
         }
 
-        .judul-aplikasi {
-            font-weight: bold;
-        }
+
 
         .sidebar {
             min-height: calc(100vh - 76px);
@@ -132,59 +130,16 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-dark navbar-expand-lg px-3">
+    <nav class="navbar navbar-dark px-3">
         <div class="container-fluid">
-
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="aplikasi-removebg-preview.png"
-                     alt="Logo" width="50" height="50" class="me-2">
-
+                <img src="aplikasi-removebg-preview.png" alt="Logo" width="50" height="50" class="me-2">
                 <span class="judul-aplikasi fs-6 lh-sm text-white">
-                    Aplikasi Stok dan Kebutuhan<br>
-                    Belanja Rumah Tangga
+                    Aplikasi Stok dan Kebutuhan<br>Belanja Rumah Tangga
                 </span>
             </a>
-
-            <button class="navbar-toggler" type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-lg-center">
-
-                    <li class="nav-item me-lg-3">
-                        <a class="nav-link text-white" href="#">
-                            <i class="fas fa-bell fs-5"></i>
-                        </a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white"
-                           href="#" id="navbarDropdown"
-                           role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                            Pengguna
-                        </a>
-
-                        <ul class="dropdown-menu dropdown-menu-end"
-                            aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Profil Saya</a></li>
-                            <li><a class="dropdown-item" href="#">Pengaturan</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Keluar</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-            </div>
         </div>
     </nav>
-
     <!-- Page Wrapper -->
     <div class="d-flex">
 
@@ -245,8 +200,7 @@
             <div class="table-wrapper">
                 <div class="table-responsive">
 
-                    <table class="table table-bordered border-dark align-middle"
-                           id="tabelBelanja">
+                    <table class="table table-bordered border-dark align-middle" id="tabelBelanja">
 
                         <thead>
                             <tr>
@@ -267,9 +221,8 @@
                                 <td class="kolom-tengah">3</td>
                                 <td class="kolom-tengah">Dibeli</td>
                                 <td class="kolom-tengah">
-                                    <button type="button" class="link-edit"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#editBelanja1">
+                                    <button type="button" class="link-edit" data-bs-toggle="modal"
+                                        data-bs-target="#editBelanja1">
                                         Edit status
                                     </button>
                                 </td>
@@ -282,9 +235,8 @@
                                 <td class="kolom-tengah">430</td>
                                 <td class="kolom-tengah">Belum dibeli</td>
                                 <td class="kolom-tengah">
-                                    <button type="button" class="link-edit"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#editBelanja2">
+                                    <button type="button" class="link-edit" data-bs-toggle="modal"
+                                        data-bs-target="#editBelanja2">
                                         Edit status
                                     </button>
                                 </td>
@@ -297,9 +249,8 @@
                                 <td class="kolom-tengah">5</td>
                                 <td class="kolom-tengah">Belum dibeli</td>
                                 <td class="kolom-tengah">
-                                    <button type="button" class="link-edit"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#editBelanja3">
+                                    <button type="button" class="link-edit" data-bs-toggle="modal"
+                                        data-bs-target="#editBelanja3">
                                         Edit status
                                     </button>
                                 </td>
@@ -322,8 +273,7 @@
     </div>
 
     <!-- Modal Edit Gula Pasir -->
-    <div class="modal fade" id="editBelanja1" tabindex="-1"
-         aria-labelledby="judulBelanja1" aria-hidden="true">
+    <div class="modal fade" id="editBelanja1" tabindex="-1" aria-labelledby="judulBelanja1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
@@ -331,22 +281,18 @@
                     <h5 class="modal-title" id="judulBelanja1">
                         Edit Status Belanja
                     </h5>
-                    <button type="button" class="btn-close"
-                            data-bs-dismiss="modal" aria-label="Tutup"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
                 </div>
 
                 <div class="modal-body">
                     <label class="form-label">Nama Barang</label>
-                    <input type="text" class="form-control mb-3"
-                           value="Gula Pasir" readonly>
+                    <input type="text" class="form-control mb-3" value="Gula Pasir" readonly>
 
                     <label class="form-label">Kategori</label>
-                    <input type="text" class="form-control mb-3"
-                           value="Bahan Makanan" readonly>
+                    <input type="text" class="form-control mb-3" value="Bahan Makanan" readonly>
 
                     <label class="form-label">Jumlah</label>
-                    <input type="number" class="form-control mb-3"
-                           value="3" min="0">
+                    <input type="number" class="form-control mb-3" value="3" min="0">
 
                     <label class="form-label">Status</label>
                     <select class="form-select">
@@ -356,10 +302,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary"
-                            data-bs-dismiss="modal">Simpan</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Simpan</button>
                 </div>
 
             </div>
@@ -367,8 +311,7 @@
     </div>
 
     <!-- Modal Edit Mama Lemon -->
-    <div class="modal fade" id="editBelanja2" tabindex="-1"
-         aria-labelledby="judulBelanja2" aria-hidden="true">
+    <div class="modal fade" id="editBelanja2" tabindex="-1" aria-labelledby="judulBelanja2" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
@@ -376,22 +319,18 @@
                     <h5 class="modal-title" id="judulBelanja2">
                         Edit Status Belanja
                     </h5>
-                    <button type="button" class="btn-close"
-                            data-bs-dismiss="modal" aria-label="Tutup"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
                 </div>
 
                 <div class="modal-body">
                     <label class="form-label">Nama Barang</label>
-                    <input type="text" class="form-control mb-3"
-                           value="Mama Lemon" readonly>
+                    <input type="text" class="form-control mb-3" value="Mama Lemon" readonly>
 
                     <label class="form-label">Kategori</label>
-                    <input type="text" class="form-control mb-3"
-                           value="Produk Kebersihan" readonly>
+                    <input type="text" class="form-control mb-3" value="Produk Kebersihan" readonly>
 
                     <label class="form-label">Jumlah</label>
-                    <input type="number" class="form-control mb-3"
-                           value="430" min="0">
+                    <input type="number" class="form-control mb-3" value="430" min="0">
 
                     <label class="form-label">Status</label>
                     <select class="form-select">
@@ -401,10 +340,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary"
-                            data-bs-dismiss="modal">Simpan</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Simpan</button>
                 </div>
 
             </div>
@@ -412,8 +349,7 @@
     </div>
 
     <!-- Modal Edit Beras -->
-    <div class="modal fade" id="editBelanja3" tabindex="-1"
-         aria-labelledby="judulBelanja3" aria-hidden="true">
+    <div class="modal fade" id="editBelanja3" tabindex="-1" aria-labelledby="judulBelanja3" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
 
@@ -421,22 +357,18 @@
                     <h5 class="modal-title" id="judulBelanja3">
                         Edit Status Belanja
                     </h5>
-                    <button type="button" class="btn-close"
-                            data-bs-dismiss="modal" aria-label="Tutup"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
                 </div>
 
                 <div class="modal-body">
                     <label class="form-label">Nama Barang</label>
-                    <input type="text" class="form-control mb-3"
-                           value="Beras" readonly>
+                    <input type="text" class="form-control mb-3" value="Beras" readonly>
 
                     <label class="form-label">Kategori</label>
-                    <input type="text" class="form-control mb-3"
-                           value="Bahan Makanan" readonly>
+                    <input type="text" class="form-control mb-3" value="Bahan Makanan" readonly>
 
                     <label class="form-label">Jumlah</label>
-                    <input type="number" class="form-control mb-3"
-                           value="5" min="0">
+                    <input type="number" class="form-control mb-3" value="5" min="0">
 
                     <label class="form-label">Status</label>
                     <select class="form-select">
@@ -446,10 +378,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary"
-                            data-bs-dismiss="modal">Simpan</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Simpan</button>
                 </div>
 
             </div>
@@ -460,4 +390,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
