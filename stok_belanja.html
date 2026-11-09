@@ -22,6 +22,31 @@
             line-height: 1.25;
         }
 
+        /* ===== Kolom pencarian di navbar ===== */
+        .pencarian-navbar {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .pencarian-navbar .input-group {
+            background-color: #fff;
+            border: 2px solid #212529;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .pencarian-navbar .input-group-text {
+            background-color: #fff;
+            border: 0;
+            color: #000;
+        }
+
+        .pencarian-navbar .form-control {
+            border: 0;
+            box-shadow: none;
+            font-size: 0.85rem;
+        }
+
         /* ===== Sidebar ===== */
         .sidebar {
             min-height: calc(100vh - 76px);
@@ -60,13 +85,6 @@
         }
 
         /* ===== Tabel stok barang ===== */
-        .table-wrapper {
-            background-color: #fff;
-            border: 2px solid #212529;
-            border-radius: 25px;
-            padding: 20px;
-        }
-
         #tabelStok {
             width: 100%;
             border-collapse: collapse;
@@ -115,6 +133,16 @@
                     Aplikasi Stok dan Kebutuhan<br>Belanja Rumah Tangga
                 </span>
             </a>
+
+            <!-- Pencarian -->
+            <form class="pencarian-navbar mx-auto" role="search">
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="fas fa-search"></i>
+                    </span>
+                    <input type="search" class="form-control" placeholder="Cari Barang" aria-label="Cari Barang">
+                </div>
+            </form>
         </div>
     </nav>
 
@@ -171,8 +199,7 @@
                 Ringkasan Kondisi Stok Barang dan Kebutuhan Belanja Rumah Tangga
             </p>
 
-            <div class="table-wrapper">
-                <div class="table-responsive">
+            <div class="table-responsive">
 
                     <table id="tabelStok">
                         <thead>
@@ -236,7 +263,6 @@
                         </tbody>
                     </table>
 
-                </div>
             </div>
         </div>
     </div>
